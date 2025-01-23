@@ -1,0 +1,180 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background: #111;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: black;
+    animation: bgColorChange 5s infinite alternate ease-in-out;
+    transition: background-color 0.5s ease;
+}
+
+/* Background color animation */
+@keyframes bgColorChange {
+    0% { background: black; }
+    100% { background: red; }
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s ease;
+}
+
+/* Initially light text for dark background */
+.hero-content h2, .hero-content p {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.hero-content p {
+    font-size: 22px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Button Styling */
+.btn {
+    background: white;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.btn:hover {
+    background: black;
+    color: white;
+}
+
+/* Section Styles */
+.about, .tickets, .gallery {
+    padding: 100px 0;
+    background: #111;
+}
+
+h2 {
+    font-size: 36px;
+    color: red;
+}
+/* Speakers Section */
+.speakers {
+    background: black;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.speakers h2 {
+    font-size: 36px;
+    color: red;
+    margin-bottom: 40px;
+}
+
+.speaker-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.speaker {
+    background: red;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.speaker:hover {
+    transform: scale(1.05);
+}
+
+.speaker img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.speaker h3 {
+    font-size: 24px;
+    margin-top: 15px;
+    color: black;
+}
+
+.speaker p {
+    font-size: 18px;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background: #111;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: red;
+}
