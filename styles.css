@@ -1,133 +1,216 @@
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+/* Root Variables */
+:root {
+    --primary-red: #8f1b21; /* Darker red for elegance */
+    --black-bg: #000;
+    --white-text: #fff;
+    --card-shadow: rgba(255, 0, 0, 0.3);
 }
 
-.container {
-    width: 90%;
-    margin: auto;
-    text-align: center;
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--black-bg);
+    color: var(--white-text);
+    line-height: 1.6;
 }
 
 /* Navbar */
+/* Navbar */
 .navbar {
-    background: #111;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.navbar .logo {
-    color: red;
-    font-size: 24px;
-    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-links {
+    display: flex;
     list-style: none;
-    padding: 0;
+    gap: 20px;
 }
 
-.nav-links li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.nav-links a {
+.nav-links li a {
+    color: white;
     text-decoration: none;
-    color: red;
-    font-size: 18px;
-    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #fff;
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
 }
+
+.navbar-toggle div {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+}
+
+/* Show the nav-links on desktop */
+.nav-links.open {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 100;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+
 
 /* Hero Section */
 .hero {
-    position: relative;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    background-color: var(--primary-red);
+    color: var(--white-text);
     text-align: center;
-    background: black;
-    animation: bgColorChange 5s infinite alternate ease-in-out;
-    transition: background-color 0.5s ease;
+    animation: bg-color-change 2s linear infinite alternate;
 }
 
-/* Background color animation */
-@keyframes bgColorChange {
-    0% { background: black; }
-    100% { background: red; }
+@keyframes bg-color-change {
+    0% {
+        background-color: var(--primary-red);
+    }
+    100% {
+        background-color: var(--black-bg);
+    }
 }
 
-/* Hero Content */
 .hero-content {
-    position: relative;
-    z-index: 1;
-    transition: color 0.5s ease;
+    color: var(--white-text);
 }
 
-/* Initially light text for dark background */
-.hero-content h2, .hero-content p {
+.hero-content h2 {
     font-size: 48px;
-    color: white;
-    margin-bottom: 20px;
-    transition: color 0.5s ease;
+    margin-bottom: 15px;
+    color: var(--white-text);
 }
 
 .hero-content p {
-    font-size: 22px;
-    max-width: 600px;
-    margin: 0 auto 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Button Styling */
-.btn {
-    background: white;
-    color: black;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
+.hero-content .btn {
+    background-color: var(--white-text);
+    color: var(--black-bg);
+    padding: 10px 20px;
     border-radius: 5px;
-    transition: all 0.5s ease;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.4s ease, color 0.4e;
 }
 
-.btn:hover {
-    background: black;
+.hero-content .btn:hover {
+    background-color: var(--primary-red);
+    color: var(--white-text);
+}
+
+
+/* Section Headings */
+section h2 {
+    font-size: 36px;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+/* About Section */
+.about {
+    padding: 60px 20px;
+    background: var(--black-bg);
+    text-align: center;
+}
+
+.about h3 {
+    color: var(--primary-red);
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Tickets Section */
+.tickets {
+    background-color: #bc2127;
+    color: black;
+    padding: 50px 15px;
+    text-align: center;
+}
+.tickets h2 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 40px;
+}
+.ticket-card {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.ticket-card:hover {
+    transform: scale(1.05);
+}
+
+.ticket-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.ticket-title {
+    font-size: 24px;
     color: white;
 }
 
-/* Section Styles */
-.about, .tickets, .gallery {
-    padding: 100px 0;
-    background: #111;
+.ticket-description {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-h2 {
-    font-size: 36px;
-    color: red;
-}
 /* Speakers Section */
 .speakers {
-    background: black;
+    background: var(--black-bg);
     padding: 80px 20px;
     text-align: center;
 }
 
 .speakers h2 {
     font-size: 36px;
-    color: red;
+    color: var(--primary-red);
     margin-bottom: 40px;
 }
 
@@ -139,8 +222,8 @@ h2 {
 }
 
 .speaker {
-    background: red;
-    color: black;
+    background: var(--primary-red);
+    color: var(--black-bg);
     border-radius: 10px;
     padding: 20px;
     max-width: 300px;
@@ -160,21 +243,33 @@ h2 {
 .speaker h3 {
     font-size: 24px;
     margin-top: 15px;
-    color: black;
+    color: var(--black-bg);
 }
 
 .speaker p {
     font-size: 18px;
-    color: white;
+    color: var(--white-text);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 60px 20px;
+    background: var(--black-bg);
+    text-align: center;
+}
+
+.gallery p {
+    font-size: 18px;
 }
 
 /* Footer */
 .footer {
-    background: #111;
-    padding: 20px 0;
+    background: var(--primary-red);
+    padding: 20px;
     text-align: center;
 }
 
 .footer p {
-    color: red;
+    color: var(--white-text);
+    font-size: 14px;
 }
