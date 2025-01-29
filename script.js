@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.querySelector('.hero');
     const title = document.getElementById('hero-title');
     const text = document.getElementById('hero-text');
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.backgroundColor = 'white';
             btn.style.color = 'black';
         }
-    }, 5000); // Switch colors every 5 seconds
+    }, 4000); // Switch colors every 5 seconds
 });
-
+ */
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.navbar-toggle');
     const navLinks = document.querySelector('.nav-links');
