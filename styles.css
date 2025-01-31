@@ -212,23 +212,74 @@ section h2 {
     margin-bottom: 20px;
 }
 
-/* About Section */
 .about {
-    padding: 60px 20px;
-    background: var(--black-bg);
-    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--black-bg);
 }
 
-.about h3 {
-    color: var(--primary-red);
-    font-size: 28px;
-    margin-top: 20px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.about p {
-    font-size: 18px;
-    margin: 10px 0;
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
 }
+
+.about-section.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-card {
+    flex: 0 0 40%;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-section.reverse-layout {
+        flex-direction: column;
+    }
+
+    .image-card {
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        text-align: justify;
+    }
+}
+
 .tickets h2 {
     font-size: 36px;
     color: white;
