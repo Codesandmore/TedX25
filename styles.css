@@ -100,115 +100,6 @@ body {
     background-color: black;
     overflow: hidden;
     animation: backgroundColorChange 4s infinite alternate ease-in-out;
-}
-
-.hero-pattern {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    z-index: 1;
-}
-
-.hero-pattern::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent 0,
-      transparent 9%,
-      currentColor 10%,
-      currentColor 12%
-    );
-    opacity: 0.1;
-}
-
-.hero-pattern div {
-    width: 10px;
-    height: 10px;
-    display: block;
-    position: relative;
-}
-
-.hero-pattern div::before {
-    content: "X";
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 8px;
-    color: red; 
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    max-width: 70%;
-    text-align: center;
-    border-radius: 0.5rem;
-}
-
-.hero-content h2 {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: textColorChange 4s infinite alternate ease-in-out;
-}
-
-.hero-content p {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    animation: textColorChange 4s infinite alternate ease-in-out;
-}
-
-.hero-content .btn {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    text-transform: uppercase;
-    padding: 0.8rem 1.2rem;
-    text-decoration: none;
-    transition: background-color ease-in-out 0.3s;
-}
-
-.hero-content .btn:hover {
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-}
-
-
-@keyframes backgroundColorChange {
-    0% {
-        background-color: black;
-    }
-    100% {
-        background-color: #bc2127; 
-    }
-}
-
-@keyframes textColorChange {
-    0% {
-        color: white;
-    }
-    100% {
-        color: #fae7bf;
-    }
-} */
-
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: black;
-    overflow: hidden;
-    animation: backgroundColorChange 4s infinite alternate ease-in-out;
   }
   
   .hero-pattern {
@@ -222,7 +113,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("images/abtedxmace.JPG"); /* Replace with your image path */
+    background-image: url("images/abtedxmace.JPG"); 
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -274,7 +165,6 @@ body {
     border-color: var(--cream-text);
   }
   
-  /* Animations */
   @keyframes backgroundColorChange {
     0% {
       background-color: black;
@@ -338,7 +228,128 @@ body {
       font-size: 0.9rem;
     }
   } 
+ */
 
+ /* Hero Section */
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--black-bg);
+    color: white;
+    text-align: center;
+    overflow: hidden; /* To prevent circles from going outside the container */
+}
+
+.hero-content {
+    z-index: 1;
+    position: relative;
+}
+
+#hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#hero-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+#hero-btn:hover {
+    background-color: var(--cream-text);
+    color: var(--black-bg);
+}
+
+/* Circles Container */
+.circles-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* So the circles don't interfere with clicking */
+}
+
+.circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(250, 231, 191, 0.97); /* Cream color with opacity */
+    animation: expand 5s infinite; /* Animation loop for expanding circles */
+}
+
+.circle:nth-child(1) {
+    animation-delay: 0s;
+    background-color: rgba(250, 231, 191, 0.98); /* Cream color with opacity */
+}
+
+.circle:nth-child(2) {
+    animation-delay: 0.75s;
+    background-color: rgba(250, 231, 191, 0.99); /* Cream color with opacity */
+}
+.circle:nth-child(3) {
+    animation-delay: 1.5s;
+    background-color: rgba(250, 231, 191, 1); /* Cream color with opacity */
+}
+.circle:nth-child(4) {
+    animation-delay: 3s;
+    background-color: rgba(250, 231, 191, 0); /* Cream color with opacity */
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #hero-title {
+        font-size: 2.5rem;
+    }
+
+    #hero-text {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Circle Animation */
+@keyframes expand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(16);
+        opacity: 0;
+    }
+}
 
 /* Section Headings */
 section h2 {
@@ -428,6 +439,141 @@ p {
         text-align: justify;
     }
 }
+
+/* Theme Section */
+.theme-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+  }
+
+  .theme-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(images/themebg.png) no-repeat center center/cover; /* Set the background image here */
+    opacity: 0.3; /* Adjust the opacity of the background */
+    z-index: -1; /* Keep the overlay behind the content */
+  }
+  
+  .theme-card {
+    background: var(--cream-text);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+  }
+
+ .theme-card h3{
+    color: var(--primary-red);
+    font-size: 2.5rem;
+ }
+  .theme-card p{
+    text-align: justify;
+    color: var(--black-bg);
+  }
+
+  .floating-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .floating-image {
+    width: 50px;
+    height: 50px;
+    background: url('images/abbg.png') no-repeat center/cover;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 0.6s ease-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+  }
+  
+  .theme-card:hover ~ .floating-images .floating-image {
+    opacity: 1;
+    transform: translate(calc(50% - 25px), calc(50% - 25px)) scale(0.8);
+  }
+  
+  .theme-card:hover ~ .floating-images .floating-image:nth-child(1) {
+    transition-delay: 0s;
+  }
+  
+  .theme-card:hover ~ .floating-images .floating-image:nth-child(2) {
+    transition-delay: 0.2s;     
+  }  
+
+ /* X-shaped catch image */
+.catch-image {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+    transform: rotate(45deg); /* Rotate for X effect */
+    opacity: 1;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for movement */
+  }
+  
+  /* The X shape using pseudo-elements */
+  .catch-image::before,
+  .catch-image::after {
+    content: '';
+    position: absolute;
+    background-color: red; /* Customize color */
+    width: 100%;
+    height: 8px; /* Adjust thickness */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .catch-image::after {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  
+  
+  /* Keyframe animation for appearance and random movement */
+  @keyframes catchAnimation {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(0, 0);
+    }
+    25% {
+      opacity: 1;
+      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
+    }
+    75% {
+      opacity: 1;
+      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(0, 0);
+    }
+  }
+  
+  /* To ensure continuous reappearance, apply randomness across all stages */
+  .random {
+    animation-delay: calc(1s + random() * 2s);
+  }
+  
 
 /* Ticket Section*/
 .ticket-section {

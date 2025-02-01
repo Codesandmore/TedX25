@@ -6,3 +6,42 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('open');
     });
 });
+
+/* const themeSection = document.querySelector('.theme-section');
+const themeCard = document.querySelector('.theme-card');
+const floatingImage = document.createElement('div');
+floatingImage.classList.add('catch-image');
+themeSection.appendChild(floatingImage);
+
+function getRandomPosition() {
+  const sectionRect = themeSection.getBoundingClientRect();
+  const cardRect = themeCard.getBoundingClientRect();
+
+  const maxX = sectionRect.width - floatingImage.offsetWidth;
+  const maxY = sectionRect.height - floatingImage.offsetHeight;
+
+  let x, y;
+  
+  do {
+    x = Math.random() * maxX;
+    y = Math.random() * maxY;
+  } while (
+    x >= cardRect.left - sectionRect.left &&
+    x <= cardRect.right - sectionRect.left &&
+    y >= cardRect.top - sectionRect.top &&
+    y <= cardRect.bottom - sectionRect.top
+  );
+
+  return { x, y };
+}
+
+function repositionImage() {
+  const { x, y } = getRandomPosition();
+  floatingImage.style.left = `${x}px`;
+  floatingImage.style.top = `${y}px`;
+}
+
+repositionImage();
+
+floatingImage.addEventListener('mouseenter', repositionImage);
+ */
