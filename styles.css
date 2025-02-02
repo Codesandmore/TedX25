@@ -433,12 +433,17 @@ p {
         flex-direction: column;
     }
 
+    .text-content h3{
+      font-size: 2rem;
+  }
+
     .image-card {
         order: -1;
         margin-bottom: 1.5rem;
     }
 
     p {
+        font-size: 0.8rem;
         text-align: justify;
     }
 }
@@ -576,7 +581,17 @@ p {
   .random {
     animation-delay: calc(1s + random() * 4s);
   }
-  
+  @media (max-width: 768px) {
+    .theme-card h3{
+        font-size: 2rem;
+    }
+    .theme-card p{
+        font-size: 0.8rem;
+    }
+    .catch-image{
+      opacity: 0;
+    }
+  }
   
 
 /* Ticket Section*/
@@ -729,6 +744,21 @@ p {
 
     .ticket-card {
         max-width: 90%;
+    }
+    .section-heading{
+      position: relative;
+      left: 0;
+      transform: none;
+      font-size: 2rem;
+      color: var(--black-bg);
+      background-color: var(--cream-text);
+      border-radius: 10px;
+    }
+    .ticket-title{
+      font-size: 1.5rem;
+    }
+    .ticket-features li{
+      font-size: 0.8rem;
     }
 }
 

@@ -1,11 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.navbar-toggle');
-    const navLinks = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.navbar-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const navItems = navLinks.querySelectorAll('a'); // Get all the links
 
-    toggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-    });
+  // Toggle the navbar when the menu button is clicked
+  toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+  });
+
+  // Close the navbar after clicking any link
+  navItems.forEach(item => {
+      item.addEventListener('click', () => {
+          navLinks.classList.remove('open'); // Close the menu
+      });
+  });
 });
+
 
 const themeSection = document.querySelector('.theme-section');
 const themeCard = document.querySelector('.theme-card');
