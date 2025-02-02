@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* const themeSection = document.querySelector('.theme-section');
+const themeSection = document.querySelector('.theme-section');
 const themeCard = document.querySelector('.theme-card');
 const floatingImage = document.createElement('div');
 floatingImage.classList.add('catch-image');
@@ -44,4 +44,3 @@ function repositionImage() {
 repositionImage();
 
 floatingImage.addEventListener('mouseenter', repositionImage);
- */

@@ -83,6 +83,8 @@ body {
 
     .nav-links.open {
         display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .navbar-toggle {
@@ -252,6 +254,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: var(--primary-red);
 }
 
 #hero-text {
@@ -276,45 +279,58 @@ body {
 
 /* Circles Container */
 .circles-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none; /* So the circles don't interfere with clicking */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
 .circle {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: rgba(250, 231, 191, 0.97); /* Cream color with opacity */
-    animation: expand 5s infinite; /* Animation loop for expanding circles */
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid rgba(250, 231, 191, 0.97);
+  background-color: transparent;
+  animation: expand-rotate 4s infinite;
 }
 
 .circle:nth-child(1) {
-    animation-delay: 0s;
-    background-color: rgba(250, 231, 191, 0.98); /* Cream color with opacity */
+  animation-delay: 0s;
+  border-color: rgba(250, 231, 191, 0.98);
+  opacity: 0;
 }
 
 .circle:nth-child(2) {
-    animation-delay: 0.75s;
-    background-color: rgba(250, 231, 191, 0.99); /* Cream color with opacity */
+  animation-delay: 1s;
+  border-color: rgba(250, 231, 191, 0.99);
+  opacity: 0;
 }
+
 .circle:nth-child(3) {
-    animation-delay: 1.5s;
-    background-color: rgba(250, 231, 191, 1); /* Cream color with opacity */
+  animation-delay: 2s;
+  border-color: rgba(250, 231, 191, 1);
+  opacity: 0;
 }
-.circle:nth-child(4) {
-    animation-delay: 3s;
-    background-color: rgba(250, 231, 191, 0); /* Cream color with opacity */
+
+@keyframes expand-rotate {
+  0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(16) rotate(360deg);
+      opacity: 0;
+  }
 }
+
 
 @media screen and (max-width: 768px) {
     .hero {
@@ -335,19 +351,6 @@ body {
 
     #hero-text {
         font-size: 1.2rem;
-    }
-}
-
-
-/* Circle Animation */
-@keyframes expand {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(16);
-        opacity: 0;
     }
 }
 
@@ -457,8 +460,8 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(images/themebg.png) no-repeat center center/cover; /* Set the background image here */
-    opacity: 0.3; /* Adjust the opacity of the background */
+    background: url(images/themebg2.png) no-repeat center center/cover; /* Set the background image here */
+    opacity: 0.4; /* Adjust the opacity of the background */
     z-index: -1; /* Keep the overlay behind the content */
   }
   
@@ -515,64 +518,65 @@ p {
     transition-delay: 0.2s;     
   }  
 
- /* X-shaped catch image */
-.catch-image {
+  .catch-image {
     width: 50px;
     height: 50px;
+    background: rgba(250, 231, 191, 0.97); /* Cream color background */
+    border-radius: 50%; /* Circular shape */
     position: absolute;
-    cursor: pointer;
     z-index: 5;
-    transform: rotate(45deg); /* Rotate for X effect */
-    opacity: 1;
-    transition: transform 0.3s ease-in-out; /* Smooth transition for movement */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    animation: rotateBall 4s linear infinite; /* Add rotation animation */
+    transform-style: preserve-3d; /* Enable 3D transformations */
   }
   
-  /* The X shape using pseudo-elements */
+  @keyframes rotateBall {
+    0% {
+      transform: rotate(0deg); /* Start from 0 degrees */
+    }
+    100% {
+      transform: rotate(360deg); /* Rotate to 360 degrees */
+    }
+  }
+  
   .catch-image::before,
   .catch-image::after {
     content: '';
     position: absolute;
-    background-color: red; /* Customize color */
+    background-color: var(--primary-red); /* Customize cross color */
     width: 100%;
-    height: 8px; /* Adjust thickness */
+    height: 4px;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(-45deg) translateZ(20px); /* 3D effect */
   }
   
   .catch-image::after {
-    transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(45deg) translateZ(20px); /* 3D effect */
   }
   
-  
-  /* Keyframe animation for appearance and random movement */
-  @keyframes catchAnimation {
+  @keyframes disappear {
     0% {
+      opacity: 1;
+    }
+    90% {
       opacity: 0;
-      transform: rotate(45deg) translate(0, 0);
-    }
-    25% {
-      opacity: 1;
-      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
-    }
-    50% {
-      opacity: 1;
-      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
-    }
-    75% {
-      opacity: 1;
-      transform: rotate(45deg) translate(calc(100vw * (random()) - 50px), calc(100vh * (random()) - 50px));
     }
     100% {
       opacity: 0;
-      transform: rotate(45deg) translate(0, 0);
     }
   }
   
-  /* To ensure continuous reappearance, apply randomness across all stages */
   .random {
-    animation-delay: calc(1s + random() * 2s);
+    animation-delay: calc(1s + random() * 4s);
   }
+  
   
 
 /* Ticket Section*/
@@ -838,3 +842,10 @@ p {
     color: var(--primary-red);
     text-decoration: none;
 }
+
+@media(max-width: 768px) {  
+    .footer{ 
+        display: flex; 
+        align-items: center;
+    }
+  }
