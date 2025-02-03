@@ -54,3 +54,13 @@ function repositionImage() {
 repositionImage();
 
 floatingImage.addEventListener('mouseenter', repositionImage);
+
+const carousel = document.querySelector(".gallery-carousel");
+let index = 0;
+
+function showNextImage() {
+    index = (index + 1) % carousel.children.length;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(showNextImage, 3000);
