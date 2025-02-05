@@ -701,6 +701,7 @@ p {
   height: 100vh;
   background-color: black;
   overflow: hidden;
+  transition: background-color 2s ease-in-out; /* Smooth transition for the background color */
 }
 
 .gallery-pattern {
@@ -708,42 +709,61 @@ p {
   inset: 0;
   background-size: cover;
   background-position: center;
-  animation: imageCycle 30s infinite ease-in-out;
+  animation: imageCycle 30s infinite;
+  transition: opacity 1s ease-in-out; /* Smooth fade for the background images */
 }
 
 @keyframes imageCycle {
   0%, 10% {
     background-image: url("images/gallery/g1.JPG");
+    opacity: 1;
   }
   10%, 20% {
     background-image: url("images/gallery/g2.JPG");
+    opacity: 1;
   }
   20%, 30% {
     background-image: url("images/gallery/g3.JPG");
+    opacity: 1;
   }
   30%, 40% {
     background-image: url("images/gallery/g4.JPG");
+    opacity: 1;
   }
   40%, 50% {
     background-image: url("images/gallery/g5.JPG");
+    opacity: 1;
   }
   50%, 60% {
     background-image: url("images/gallery/g6.JPG");
+    opacity: 1;
   }
   60%, 70% {
     background-image: url("images/gallery/g7.JPG");
+    opacity: 1;
   }
   70%, 80% {
     background-image: url("images/gallery/g8.JPG");
+    opacity: 1;
   }
   80%, 90% {
     background-image: url("images/gallery/g9.JPG");
+    opacity: 1;
   }
   90%, 100% {
     background-image: url("images/gallery/g10.JPG");
+    opacity: 1;
   }
 }
 
+/* Red overlay */
+.gallery-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(188, 33, 39, 0.4); /* Semi-transparent red */
+  pointer-events: none;
+}
 
 @media (max-width: 768px) {
   .gallery {
@@ -754,6 +774,7 @@ p {
     background-size: contain;
   }
 }
+
 
 
 
