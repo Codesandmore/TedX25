@@ -321,7 +321,7 @@ p {
   }
   
   .theme-card {
-    background: var(--cream-text);
+    background: var(--primary-red);
     border-radius: 16px;
     padding: 2rem;
     max-width: 500px;
@@ -332,12 +332,12 @@ p {
   }
 
  .theme-card h3{
-    color: var(--primary-red);
+    color: var(--cream-text);
     font-size: 2.5rem;
  }
   .theme-card p{
     text-align: justify;
-    color: var(--black-bg);
+    color: var(--white-text);
   }
 
   .floating-images {
@@ -376,7 +376,7 @@ p {
   .catch-image {
     width: 50px;
     height: 50px;
-    background: rgba(250, 231, 191, 0.97); /* Cream color background */
+    background: var(--cream-text); /* Cream color background */
     border-radius: 50%; /* Circular shape */
     position: absolute;
     z-index: 5;
@@ -616,122 +616,142 @@ p {
 
 /* Speakers Section */
 .speakers {
-    background: var(--black-bg);
-    padding: 80px 20px;
-    text-align: center;
+  background: var(--black-bg);
+  padding: 80px 20px;
+  text-align: center;
 }
 
 .speakers h2 {
-    font-size: 36px;
-    color: var(--primary-red);
-    margin-bottom: 40px;
+  font-size: 36px;
+  color: var(--primary-red);
+  margin-bottom: 40px;
 }
 
 .speaker-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center;
 }
 
 .speaker {
-    background: var(--primary-red);
-    color: var(--black-bg);
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 300px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-    transition: transform 0.3s ease-in-out;
+  background: var(--primary-red);
+  color: var(--black-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .speaker:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .speaker img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  height: 250px;  /* Fixed height for consistent image sizes */
+  object-fit: cover;  /* Ensures images maintain aspect ratio */
+  border-radius: 10px;
 }
 
 .speaker h3 {
-    font-size: 24px;
-    margin-top: 15px;
-    color: var(--black-bg);
+  font-size: 24px;
+  margin-top: 15px;
+  color: var(--black-bg);
 }
 
 .speaker p {
-    font-size: 18px;
-    color: var(--white-text);
+  font-size: 16px;
+  color: var(--white-text);
+  margin-top: 10px;
+  flex-grow: 1;
+  text-align: center;
 }
 
- /* Gallery Section */
+@media (max-width: 768px) {
+  .speakers h2 {
+      font-size: 30px;
+  }
+
+  .speaker-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .speaker img {
+      height: 200px;  /* Adjust image size for mobile */
+  }
+
+  .speaker h3 {
+      font-size: 20px;
+  }
+
+  .speaker p {
+      font-size: 14px;
+  }
+}
+
+
+/* Full-page gallery */
 .gallery {
   position: relative;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
   background-color: black;
   overflow: hidden;
-  animation: backgroundColorChange 16s infinite ease-in-out;
 }
 
 .gallery-pattern {
   position: absolute;
   inset: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.gallery-pattern::after {
-  content: "";
-  position: absolute;
-  inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 2;
-  animation: backgroundCycle 16s infinite ease-in-out;
+  animation: imageCycle 30s infinite ease-in-out;
 }
 
-@keyframes backgroundColorChange {
-  0%, 50% {
-      background-color: black;
+@keyframes imageCycle {
+  0%, 10% {
+    background-image: url("images/gallery/g1.JPG");
   }
-  25%, 75% {
-      background-color: rgba(188, 33, 39, 0.5);
+  10%, 20% {
+    background-image: url("images/gallery/g2.JPG");
+  }
+  20%, 30% {
+    background-image: url("images/gallery/g3.JPG");
+  }
+  30%, 40% {
+    background-image: url("images/gallery/g4.JPG");
+  }
+  40%, 50% {
+    background-image: url("images/gallery/g5.JPG");
+  }
+  50%, 60% {
+    background-image: url("images/gallery/g6.JPG");
+  }
+  60%, 70% {
+    background-image: url("images/gallery/g7.JPG");
+  }
+  70%, 80% {
+    background-image: url("images/gallery/g8.JPG");
+  }
+  80%, 90% {
+    background-image: url("images/gallery/g9.JPG");
+  }
+  90%, 100% {
+    background-image: url("images/gallery/g10.JPG");
   }
 }
 
-@keyframes backgroundCycle {
-  0% {
-      background-image: url("images/.JPG");
-      opacity: 0.4;
-  }
-  25% {
-      background-image: url("images/abtedxmace2.JPG");
-      opacity: 0.1;
-  }
-  50% {
-      background-image: url("images/abtedxmace.JPG");
-      opacity: 0.1;
-  }
-  75% {
-      background-image: url("images/abtedxmace2.JPG");
-      opacity: 0.1;
-  }
-  100% {
-      background-image: url("images/abtedxmace.JPG");
-      opacity: 1;
-  }
-}
 
-/* Optional Mobile Responsiveness */
 @media (max-width: 768px) {
   .gallery {
-      height: 50vh;
+    height: 33.33vh;
+  }
+
+  .gallery-pattern {
+    background-size: contain;
   }
 }
 
