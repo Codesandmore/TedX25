@@ -757,13 +757,13 @@ p {
 }
 
 /* Red overlay */
-.gallery-pattern::after {
+/* .gallery-pattern::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(188, 33, 39, 0.4); /* Semi-transparent red */
+  background-color: rgba(188, 33, 39, 0.4); 
   pointer-events: none;
-}
+} */
 
 @media (max-width: 768px) {
   .gallery {
