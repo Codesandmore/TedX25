@@ -614,7 +614,7 @@ p {
 
 
 
-/* Speakers Section */
+/* Speaker Section Styling */
 .speakers {
   background: var(--black-bg);
   padding: 80px 20px;
@@ -627,13 +627,15 @@ p {
   margin-bottom: 40px;
 }
 
+/* Speaker Card List */
 .speaker-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align when fewer cards are present */
   gap: 40px;
-  justify-content: center;
 }
 
+/* Speaker Card Styling */
 .speaker {
   background: var(--primary-red);
   color: var(--black-bg);
@@ -645,16 +647,20 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1 1 calc(33.33% - 40px); /* Ensure 3 cards per row */
+  max-width: 300px;
+  box-sizing: border-box;
 }
 
 .speaker:hover {
   transform: scale(1.05);
 }
 
+/* Image Styling */
 .speaker img {
   width: 100%;
-  height: 250px;  /* Fixed height for consistent image sizes */
-  object-fit: cover;  /* Ensures images maintain aspect ratio */
+  height: 250px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -668,31 +674,33 @@ p {
   font-size: 16px;
   color: var(--white-text);
   margin-top: 10px;
-  flex-grow: 1;
   text-align: center;
 }
 
+/* Responsive Adjustments for Mobile */
 @media (max-width: 768px) {
   .speakers h2 {
-      font-size: 30px;
+    font-size: 30px;
   }
 
-  .speaker-list {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  .speaker {
+    flex: 1 1 100%; /* Single card per row on mobile */
+    max-width: 300px;
   }
 
   .speaker img {
-      height: 200px;  /* Adjust image size for mobile */
+    height: 200px;
   }
 
   .speaker h3 {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .speaker p {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
+
 
 
 /* Full-page gallery */
@@ -757,13 +765,13 @@ p {
 }
 
 /* Red overlay */
-/* .gallery-pattern::after {
+.gallery-pattern::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(188, 33, 39, 0.4); 
+  background-color: rgba(188, 33, 39, 0.3); 
   pointer-events: none;
-} */
+}
 
 @media (max-width: 768px) {
   .gallery {
