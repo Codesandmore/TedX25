@@ -457,9 +457,8 @@ p {
     font-size: 2.5rem;
     color: var(--cream-text);
     font-weight: bold;
-    position: absolute;
-    left: 10%;
-    transform: translateY(-50%) translateX(2rem); /* Moves it to left-middle */
+    position: relative;
+    margin-bottom: 20px;
 }
 
 /* Ticket Container */
@@ -596,13 +595,8 @@ p {
         max-width: 90%;
     }
     .section-heading{
-      position: relative;
-      left: 0;
-      transform: none;
       font-size: 2rem;
-      color: var(--black-bg);
-      background-color: var(--cream-text);
-      border-radius: 10px;
+      color: var(--cream-text);
     }
     .ticket-title{
       font-size: 1.5rem;
