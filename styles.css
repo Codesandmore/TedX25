@@ -616,14 +616,27 @@ p {
 
 /* Speaker Section Styling */
 .speakers {
-  background: var(--black-bg);
   padding: 80px 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.speakers::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(images/speakersbg.png) no-repeat center center/cover; /* Set the background image here */
+  opacity: 0.3; /* Adjust the opacity of the background */
+  z-index: -1; /* Keep the overlay behind the content */
 }
 
 .speakers h2 {
   font-size: 36px;
-  color: var(--primary-red);
+  color: var(--cream-text);
   margin-bottom: 40px;
 }
 
@@ -647,7 +660,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1 1 calc(33.33% - 40px); /* Ensure 3 cards per row */
+  flex: 1 1 calc(20%); /* Ensure 3 cards per row */
   max-width: 300px;
   box-sizing: border-box;
 }
@@ -662,22 +675,34 @@ p {
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
+  background-color: var(--black-bg);
 }
 
 .speaker h3 {
   font-size: 24px;
   margin-top: 15px;
-  color: var(--black-bg);
+  color: var(--cream-text);
 }
 
-.speaker p {
-  font-size: 16px;
-  color: var(--white-text);
-  margin-top: 10px;
-  text-align: center;
+.speakers .icon-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--black-bg);
+  transition: color 0.3s ease;
 }
+
+.speakers .icon-link:hover {
+  color: var(--cream-text);
+}
+
 
 /* Responsive Adjustments for Mobile */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .speaker {
+    flex: 1 1 33.33%; /* Single card per row on mobile */
+    max-width: 300px;
+  }
+}
 @media (max-width: 768px) {
   .speakers h2 {
     font-size: 30px;
@@ -686,10 +711,6 @@ p {
   .speaker {
     flex: 1 1 100%; /* Single card per row on mobile */
     max-width: 300px;
-  }
-
-  .speaker img {
-    height: 200px;
   }
 
   .speaker h3 {
